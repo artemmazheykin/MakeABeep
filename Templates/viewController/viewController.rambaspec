@@ -1,0 +1,14 @@
+# Template information section
+name: viewController
+summary: viewController template
+author: Artem Mazheykin
+version: 1.0.0
+license: MIT
+
+# The declarations for code files
+code_files:
+- {name: ViewController.swift, path: Code/viewController.swift.liquid}
+- {name: .storyboard, path: Code/board.storyboard.liquid}
+
+# Template dependencies
+dependencies:

@@ -1,0 +1,25 @@
+# Template information section
+name: swifty_DAL
+summary: data access layer
+author: Artem Mazheykin
+version: 1.0.0
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+# Models layer
+- {name: Models/Model.swift,  path: Code/Models/Model.swift.liquid}
+
+# Repository layer
+- {name: Repository/Repository.swift,  path: Code/Repository/Repository.swift.liquid}
+- {name: Repository/RepositoryImpl.swift,  path: Code/Repository/RepositoryImpl.swift.liquid}
+
+# Service layer
+- {name: Service/Service.swift,  path: Code/Service/Service.swift.liquid}
+- {name: Service/ServiceImpl.swift,  path: Code/Service/ServiceImpl.swift.liquid}
+
+# Template dependencies
+dependencies:
+
+

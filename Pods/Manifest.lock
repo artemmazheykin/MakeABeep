@@ -1,0 +1,41 @@
+PODS:
+  - AwesomeCache (5.0)
+  - FCAlertView (1.4.0)
+  - PromiseKit (4.4.3):
+    - PromiseKit/Foundation (= 4.4.3)
+    - PromiseKit/QuartzCore (= 4.4.3)
+    - PromiseKit/UIKit (= 4.4.3)
+  - PromiseKit/CorePromise (4.4.3)
+  - PromiseKit/Foundation (4.4.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.4.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.4.3):
+    - PromiseKit/CorePromise
+  - TTGTagCollectionView (1.6.1)
+  - Typhoon (4.0.3):
+    - Typhoon/DeallocNotifier (= 4.0.3)
+    - Typhoon/IntrospectionUtils (= 4.0.3)
+    - Typhoon/no-arc (= 4.0.3)
+  - Typhoon/DeallocNotifier (4.0.3)
+  - Typhoon/IntrospectionUtils (4.0.3)
+  - Typhoon/no-arc (4.0.3):
+    - Typhoon/IntrospectionUtils
+
+DEPENDENCIES:
+  - AwesomeCache
+  - FCAlertView
+  - PromiseKit
+  - TTGTagCollectionView
+  - Typhoon
+
+SPEC CHECKSUMS:
+  AwesomeCache: d8906955242173357caa0be0214d5e77dec32cc5
+  FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
+  PromiseKit: fbb52a0d154402c57eeb6eccd36dd7724fcf6117
+  TTGTagCollectionView: 828087136810b786ce8c30c89acf3877cccb0383
+  Typhoon: 85d1a7ada9a7def46a374be1301540572cc53636
+
+PODFILE CHECKSUM: 2c2afc17f657946408a7f6f06e62e305ebde7410
+
+COCOAPODS: 1.2.0

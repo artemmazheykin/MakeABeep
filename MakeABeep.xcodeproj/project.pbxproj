@@ -1,0 +1,875 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		043E5E811F5588DF001D2343 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E6D1F5588DF001D2343 /* Assembly.swift */; };
+		043E5E821F5588DF001D2343 /* AssemblyProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E6E1F5588DF001D2343 /* AssemblyProperties.swift */; };
+		043E5E831F5588DF001D2343 /* AssemblyViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E6F1F5588DF001D2343 /* AssemblyViewControllers.swift */; };
+		043E5E891F5588DF001D2343 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E7B1F5588DF001D2343 /* Navigator.swift */; };
+		043E5E8A1F5588DF001D2343 /* NavigatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E7C1F5588DF001D2343 /* NavigatorImpl.swift */; };
+		043E5E8B1F5588DF001D2343 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E7E1F5588DF001D2343 /* Router.swift */; };
+		043E5E8C1F5588DF001D2343 /* RouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E7F1F5588DF001D2343 /* RouterImpl.swift */; };
+		043E5E8D1F5588DF001D2343 /* RouterViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E5E801F5588DF001D2343 /* RouterViewControllerType.swift */; };
+		044DCA7F1FA9E3E900D27B31 /* CreateRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DCA7E1FA9E3E900D27B31 /* CreateRuleCell.swift */; };
+		04B20F741FA730D4004F7386 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B20F731FA730D4004F7386 /* TestViewController.swift */; };
+		04F879431F554B1A006DFD6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F879421F554B1A006DFD6E /* AppDelegate.swift */; };
+		04F879481F554B1A006DFD6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F879461F554B1A006DFD6E /* Main.storyboard */; };
+		04F8794A1F554B1A006DFD6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F879491F554B1A006DFD6E /* Assets.xcassets */; };
+		04F8794D1F554B1A006DFD6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F8794B1F554B1A006DFD6E /* LaunchScreen.storyboard */; };
+		04F879581F554B1A006DFD6E /* MakeABeepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F879571F554B1A006DFD6E /* MakeABeepTests.swift */; };
+		04F879631F554B1A006DFD6E /* MakeABeepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F879621F554B1A006DFD6E /* MakeABeepUITests.swift */; };
+		6701DD317B8C0CF6D601F47A /* RuleServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41DAC36DA4C7C3144631D1 /* RuleServiceImpl.swift */; };
+		7BA0B523C331532A600F275A /* RuleRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC4D493DEB508DDF23F07A5 /* RuleRepositoryImpl.swift */; };
+		7FC50ACEC4544899B78A8D2F /* RuleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115097FC19F934B83F0A41E0 /* RuleService.swift */; };
+		AC06F8B694D028A8EEE828E9 /* RuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4776D803241CD26B8A6963 /* RuleModel.swift */; };
+		B3E529F78B19BB5985D0124D /* Pods_MakeABeep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B519961D8F53229CF1605D /* Pods_MakeABeep.framework */; };
+		C61459DAACE8D98E0EB1A7E9 /* RuleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78976B14B62B88CD51C16F4D /* RuleRepository.swift */; };
+		ED46FC7D1F68679F00C408D8 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED46FC7C1F68679F00C408D8 /* TimePickerCell.swift */; };
+		ED8B56F51FA4831100319B5D /* bell_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED8B56F41FA4831100319B5D /* bell_ring.mp3 */; };
+		ED8B56F71FA4834800319B5D /* bird_peewee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED8B56F61FA4834800319B5D /* bird_peewee.mp3 */; };
+		ED8B56F91FA4837F00319B5D /* bird_pigeon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED8B56F81FA4837F00319B5D /* bird_pigeon.mp3 */; };
+		ED8B56FB1FA483E800319B5D /* bell_school.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED8B56FA1FA483E800319B5D /* bell_school.mp3 */; };
+		ED96B6DD1F65394B00850BE2 /* DaysPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96B6DC1F65394B00850BE2 /* DaysPickerCell.swift */; };
+		ED9E00C51F9B826D00F9335E /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E00C41F9B826D00F9335E /* TimePickerViewController.swift */; };
+		ED9E00C71F9B969000F9335E /* PeriodAndSoundCreationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E00C61F9B969000F9335E /* PeriodAndSoundCreationCell.swift */; };
+		ED9E00CA1F9FC3E000F9335E /* PeriodAndSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E00C91F9FC3E000F9335E /* PeriodAndSoundViewController.swift */; };
+		EDDB4D1B1F55DF0200A31AA2 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB4D181F55DF0200A31AA2 /* MainMenuViewController.swift */; };
+		EDDB4D1C1F55DF0200A31AA2 /* NewRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB4D1A1F55DF0200A31AA2 /* NewRuleViewController.swift */; };
+		EDDB4D201F55F3FA00A31AA2 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB4D1F1F55F3FA00A31AA2 /* DayOfWeek.swift */; };
+		EDDB4D221F59E60700A31AA2 /* RuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB4D211F59E60700A31AA2 /* RuleCell.swift */; };
+		EDDB4D241F5BD97B00A31AA2 /* BeepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB4D231F5BD97B00A31AA2 /* BeepModel.swift */; };
+		EDDB4D261F5BDD0900A31AA2 /* DayWithEventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB4D251F5BDD0900A31AA2 /* DayWithEventsModel.swift */; };
+		EDF301911FA4C1F10080C366 /* PeriodAndSoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF301901FA4C1F10080C366 /* PeriodAndSoundCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04F879541F554B1A006DFD6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04F879371F554B19006DFD6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04F8793E1F554B19006DFD6E;
+			remoteInfo = MakeABeep;
+		};
+		04F8795F1F554B1A006DFD6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04F879371F554B19006DFD6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04F8793E1F554B19006DFD6E;
+			remoteInfo = MakeABeep;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		043E5E6D1F5588DF001D2343 /* Assembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		043E5E6E1F5588DF001D2343 /* AssemblyProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyProperties.swift; sourceTree = "<group>"; };
+		043E5E6F1F5588DF001D2343 /* AssemblyViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyViewControllers.swift; sourceTree = "<group>"; };
+		043E5E7B1F5588DF001D2343 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		043E5E7C1F5588DF001D2343 /* NavigatorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorImpl.swift; sourceTree = "<group>"; };
+		043E5E7E1F5588DF001D2343 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		043E5E7F1F5588DF001D2343 /* RouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterImpl.swift; sourceTree = "<group>"; };
+		043E5E801F5588DF001D2343 /* RouterViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterViewControllerType.swift; sourceTree = "<group>"; };
+		044DCA7E1FA9E3E900D27B31 /* CreateRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRuleCell.swift; sourceTree = "<group>"; };
+		04B20F731FA730D4004F7386 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		04F8793F1F554B1A006DFD6E /* MakeABeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeABeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04F879421F554B1A006DFD6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04F879471F554B1A006DFD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04F879491F554B1A006DFD6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04F8794C1F554B1A006DFD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04F8794E1F554B1A006DFD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F879531F554B1A006DFD6E /* MakeABeepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeABeepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04F879571F554B1A006DFD6E /* MakeABeepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeABeepTests.swift; sourceTree = "<group>"; };
+		04F879591F554B1A006DFD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F8795E1F554B1A006DFD6E /* MakeABeepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeABeepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04F879621F554B1A006DFD6E /* MakeABeepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeABeepUITests.swift; sourceTree = "<group>"; };
+		04F879641F554B1A006DFD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		115097FC19F934B83F0A41E0 /* RuleService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RuleService.swift; sourceTree = "<group>"; };
+		2C4776D803241CD26B8A6963 /* RuleModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RuleModel.swift; sourceTree = "<group>"; };
+		3BD4887839B45B71CCF1438E /* Pods-MakeABeep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeABeep.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakeABeep/Pods-MakeABeep.release.xcconfig"; sourceTree = "<group>"; };
+		5FC4D493DEB508DDF23F07A5 /* RuleRepositoryImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RuleRepositoryImpl.swift; sourceTree = "<group>"; };
+		64B519961D8F53229CF1605D /* Pods_MakeABeep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeABeep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78976B14B62B88CD51C16F4D /* RuleRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RuleRepository.swift; sourceTree = "<group>"; };
+		8B1C88F40275DCE89B564468 /* Pods-MakeABeep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeABeep.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakeABeep/Pods-MakeABeep.debug.xcconfig"; sourceTree = "<group>"; };
+		ED46FC7C1F68679F00C408D8 /* TimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
+		ED8B56F41FA4831100319B5D /* bell_ring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell_ring.mp3; sourceTree = "<group>"; };
+		ED8B56F61FA4834800319B5D /* bird_peewee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_peewee.mp3; sourceTree = "<group>"; };
+		ED8B56F81FA4837F00319B5D /* bird_pigeon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_pigeon.mp3; sourceTree = "<group>"; };
+		ED8B56FA1FA483E800319B5D /* bell_school.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell_school.mp3; sourceTree = "<group>"; };
+		ED96B6DC1F65394B00850BE2 /* DaysPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysPickerCell.swift; sourceTree = "<group>"; };
+		ED9E00C41F9B826D00F9335E /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
+		ED9E00C61F9B969000F9335E /* PeriodAndSoundCreationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodAndSoundCreationCell.swift; sourceTree = "<group>"; };
+		ED9E00C91F9FC3E000F9335E /* PeriodAndSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodAndSoundViewController.swift; sourceTree = "<group>"; };
+		EDDB4D181F55DF0200A31AA2 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		EDDB4D1A1F55DF0200A31AA2 /* NewRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRuleViewController.swift; sourceTree = "<group>"; };
+		EDDB4D1F1F55F3FA00A31AA2 /* DayOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
+		EDDB4D211F59E60700A31AA2 /* RuleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleCell.swift; sourceTree = "<group>"; };
+		EDDB4D231F5BD97B00A31AA2 /* BeepModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeepModel.swift; sourceTree = "<group>"; };
+		EDDB4D251F5BDD0900A31AA2 /* DayWithEventsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWithEventsModel.swift; sourceTree = "<group>"; };
+		EDF301901FA4C1F10080C366 /* PeriodAndSoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodAndSoundCell.swift; sourceTree = "<group>"; };
+		FE41DAC36DA4C7C3144631D1 /* RuleServiceImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RuleServiceImpl.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04F8793C1F554B19006DFD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3E529F78B19BB5985D0124D /* Pods_MakeABeep.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F879501F554B1A006DFD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F8795B1F554B1A006DFD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		043E5E6C1F5588DF001D2343 /* Assemly */ = {
+			isa = PBXGroup;
+			children = (
+				043E5E6D1F5588DF001D2343 /* Assembly.swift */,
+				043E5E6E1F5588DF001D2343 /* AssemblyProperties.swift */,
+				043E5E6F1F5588DF001D2343 /* AssemblyViewControllers.swift */,
+			);
+			path = Assemly;
+			sourceTree = "<group>";
+		};
+		043E5E701F5588DF001D2343 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				8F65663CC4767E3DB7D00371 /* Rule */,
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		043E5E7A1F5588DF001D2343 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				043E5E7B1F5588DF001D2343 /* Navigator.swift */,
+				043E5E7C1F5588DF001D2343 /* NavigatorImpl.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		043E5E7D1F5588DF001D2343 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				043E5E7E1F5588DF001D2343 /* Router.swift */,
+				043E5E7F1F5588DF001D2343 /* RouterImpl.swift */,
+				043E5E801F5588DF001D2343 /* RouterViewControllerType.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		04B20F721FA730BC004F7386 /* TestViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04B20F731FA730D4004F7386 /* TestViewController.swift */,
+			);
+			path = TestViewController;
+			sourceTree = "<group>";
+		};
+		04F879361F554B19006DFD6E = {
+			isa = PBXGroup;
+			children = (
+				04F879411F554B1A006DFD6E /* MakeABeep */,
+				04F879561F554B1A006DFD6E /* MakeABeepTests */,
+				04F879611F554B1A006DFD6E /* MakeABeepUITests */,
+				04F879401F554B1A006DFD6E /* Products */,
+				787827D4A13A5F319ED1BBCD /* Pods */,
+				F4BDC9908450EB137CDD29D0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04F879401F554B1A006DFD6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04F8793F1F554B1A006DFD6E /* MakeABeep.app */,
+				04F879531F554B1A006DFD6E /* MakeABeepTests.xctest */,
+				04F8795E1F554B1A006DFD6E /* MakeABeepUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04F879411F554B1A006DFD6E /* MakeABeep */ = {
+			isa = PBXGroup;
+			children = (
+				04F879421F554B1A006DFD6E /* AppDelegate.swift */,
+				EDDB4D1E1F55F3DE00A31AA2 /* Enums */,
+				043E5E6C1F5588DF001D2343 /* Assemly */,
+				043E5E701F5588DF001D2343 /* DAL */,
+				043E5E7A1F5588DF001D2343 /* Navigator */,
+				ED8B56F31FA4828A00319B5D /* MP3 */,
+				043E5E7D1F5588DF001D2343 /* Router */,
+				EDDB4D161F55DF0200A31AA2 /* ViewControllers */,
+				04F879461F554B1A006DFD6E /* Main.storyboard */,
+				04F879491F554B1A006DFD6E /* Assets.xcassets */,
+				04F8794B1F554B1A006DFD6E /* LaunchScreen.storyboard */,
+				04F8794E1F554B1A006DFD6E /* Info.plist */,
+			);
+			path = MakeABeep;
+			sourceTree = "<group>";
+		};
+		04F879561F554B1A006DFD6E /* MakeABeepTests */ = {
+			isa = PBXGroup;
+			children = (
+				04F879571F554B1A006DFD6E /* MakeABeepTests.swift */,
+				04F879591F554B1A006DFD6E /* Info.plist */,
+			);
+			path = MakeABeepTests;
+			sourceTree = "<group>";
+		};
+		04F879611F554B1A006DFD6E /* MakeABeepUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04F879621F554B1A006DFD6E /* MakeABeepUITests.swift */,
+				04F879641F554B1A006DFD6E /* Info.plist */,
+			);
+			path = MakeABeepUITests;
+			sourceTree = "<group>";
+		};
+		1444EFD0757616B92CB42C08 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				78976B14B62B88CD51C16F4D /* RuleRepository.swift */,
+				5FC4D493DEB508DDF23F07A5 /* RuleRepositoryImpl.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4AFD7431CEEF5BD7F0AB8F49 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				115097FC19F934B83F0A41E0 /* RuleService.swift */,
+				FE41DAC36DA4C7C3144631D1 /* RuleServiceImpl.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		787827D4A13A5F319ED1BBCD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B1C88F40275DCE89B564468 /* Pods-MakeABeep.debug.xcconfig */,
+				3BD4887839B45B71CCF1438E /* Pods-MakeABeep.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F65663CC4767E3DB7D00371 /* Rule */ = {
+			isa = PBXGroup;
+			children = (
+				D3BD7A57653E59A1B7A9E413 /* Models */,
+				1444EFD0757616B92CB42C08 /* Repository */,
+				4AFD7431CEEF5BD7F0AB8F49 /* Service */,
+			);
+			path = Rule;
+			sourceTree = "<group>";
+		};
+		D3BD7A57653E59A1B7A9E413 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C4776D803241CD26B8A6963 /* RuleModel.swift */,
+				EDDB4D231F5BD97B00A31AA2 /* BeepModel.swift */,
+				EDDB4D251F5BDD0900A31AA2 /* DayWithEventsModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ED8B56F31FA4828A00319B5D /* MP3 */ = {
+			isa = PBXGroup;
+			children = (
+				ED8B56F41FA4831100319B5D /* bell_ring.mp3 */,
+				ED8B56F61FA4834800319B5D /* bird_peewee.mp3 */,
+				ED8B56F81FA4837F00319B5D /* bird_pigeon.mp3 */,
+				ED8B56FA1FA483E800319B5D /* bell_school.mp3 */,
+			);
+			path = MP3;
+			sourceTree = "<group>";
+		};
+		ED9E00C31F9B821B00F9335E /* TimePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED9E00C41F9B826D00F9335E /* TimePickerViewController.swift */,
+			);
+			path = TimePickerViewController;
+			sourceTree = "<group>";
+		};
+		ED9E00C81F9FC3A600F9335E /* PeriodAndSoundViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED9E00C91F9FC3E000F9335E /* PeriodAndSoundViewController.swift */,
+			);
+			path = PeriodAndSoundViewController;
+			sourceTree = "<group>";
+		};
+		EDDB4D161F55DF0200A31AA2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				04B20F721FA730BC004F7386 /* TestViewController */,
+				EDDB4D171F55DF0200A31AA2 /* MainMenuViewController */,
+				EDDB4D191F55DF0200A31AA2 /* NewRuleViewController */,
+				ED9E00C81F9FC3A600F9335E /* PeriodAndSoundViewController */,
+				ED9E00C31F9B821B00F9335E /* TimePickerViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EDDB4D171F55DF0200A31AA2 /* MainMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EDDB4D181F55DF0200A31AA2 /* MainMenuViewController.swift */,
+				EDDB4D211F59E60700A31AA2 /* RuleCell.swift */,
+				044DCA7E1FA9E3E900D27B31 /* CreateRuleCell.swift */,
+			);
+			path = MainMenuViewController;
+			sourceTree = "<group>";
+		};
+		EDDB4D191F55DF0200A31AA2 /* NewRuleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EDDB4D1A1F55DF0200A31AA2 /* NewRuleViewController.swift */,
+				ED96B6DC1F65394B00850BE2 /* DaysPickerCell.swift */,
+				ED46FC7C1F68679F00C408D8 /* TimePickerCell.swift */,
+				ED9E00C61F9B969000F9335E /* PeriodAndSoundCreationCell.swift */,
+				EDF301901FA4C1F10080C366 /* PeriodAndSoundCell.swift */,
+			);
+			path = NewRuleViewController;
+			sourceTree = "<group>";
+		};
+		EDDB4D1E1F55F3DE00A31AA2 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EDDB4D1F1F55F3FA00A31AA2 /* DayOfWeek.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		F4BDC9908450EB137CDD29D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64B519961D8F53229CF1605D /* Pods_MakeABeep.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04F8793E1F554B19006DFD6E /* MakeABeep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04F879671F554B1A006DFD6E /* Build configuration list for PBXNativeTarget "MakeABeep" */;
+			buildPhases = (
+				398AFB80DF5AE63D4C97D874 /* [CP] Check Pods Manifest.lock */,
+				04F8793B1F554B19006DFD6E /* Sources */,
+				04F8793C1F554B19006DFD6E /* Frameworks */,
+				04F8793D1F554B19006DFD6E /* Resources */,
+				A1E23491C205FED00878B93F /* [CP] Embed Pods Frameworks */,
+				5135A80756410A099FA16B20 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MakeABeep;
+			productName = MakeABeep;
+			productReference = 04F8793F1F554B1A006DFD6E /* MakeABeep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04F879521F554B1A006DFD6E /* MakeABeepTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04F8796A1F554B1A006DFD6E /* Build configuration list for PBXNativeTarget "MakeABeepTests" */;
+			buildPhases = (
+				04F8794F1F554B1A006DFD6E /* Sources */,
+				04F879501F554B1A006DFD6E /* Frameworks */,
+				04F879511F554B1A006DFD6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04F879551F554B1A006DFD6E /* PBXTargetDependency */,
+			);
+			name = MakeABeepTests;
+			productName = MakeABeepTests;
+			productReference = 04F879531F554B1A006DFD6E /* MakeABeepTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04F8795D1F554B1A006DFD6E /* MakeABeepUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04F8796D1F554B1A006DFD6E /* Build configuration list for PBXNativeTarget "MakeABeepUITests" */;
+			buildPhases = (
+				04F8795A1F554B1A006DFD6E /* Sources */,
+				04F8795B1F554B1A006DFD6E /* Frameworks */,
+				04F8795C1F554B1A006DFD6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04F879601F554B1A006DFD6E /* PBXTargetDependency */,
+			);
+			name = MakeABeepUITests;
+			productName = MakeABeepUITests;
+			productReference = 04F8795E1F554B1A006DFD6E /* MakeABeepUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04F879371F554B19006DFD6E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Artem Mazheykin";
+				TargetAttributes = {
+					04F8793E1F554B19006DFD6E = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 77324NTG3D;
+						ProvisioningStyle = Automatic;
+					};
+					04F879521F554B1A006DFD6E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04F8793E1F554B19006DFD6E;
+					};
+					04F8795D1F554B1A006DFD6E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04F8793E1F554B19006DFD6E;
+					};
+				};
+			};
+			buildConfigurationList = 04F8793A1F554B19006DFD6E /* Build configuration list for PBXProject "MakeABeep" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04F879361F554B19006DFD6E;
+			productRefGroup = 04F879401F554B1A006DFD6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04F8793E1F554B19006DFD6E /* MakeABeep */,
+				04F879521F554B1A006DFD6E /* MakeABeepTests */,
+				04F8795D1F554B1A006DFD6E /* MakeABeepUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04F8793D1F554B19006DFD6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8B56F51FA4831100319B5D /* bell_ring.mp3 in Resources */,
+				04F8794D1F554B1A006DFD6E /* LaunchScreen.storyboard in Resources */,
+				04F8794A1F554B1A006DFD6E /* Assets.xcassets in Resources */,
+				ED8B56F71FA4834800319B5D /* bird_peewee.mp3 in Resources */,
+				ED8B56FB1FA483E800319B5D /* bell_school.mp3 in Resources */,
+				04F879481F554B1A006DFD6E /* Main.storyboard in Resources */,
+				ED8B56F91FA4837F00319B5D /* bird_pigeon.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F879511F554B1A006DFD6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F8795C1F554B1A006DFD6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		398AFB80DF5AE63D4C97D874 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5135A80756410A099FA16B20 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MakeABeep/Pods-MakeABeep-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1E23491C205FED00878B93F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MakeABeep/Pods-MakeABeep-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04F8793B1F554B19006DFD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				043E5E821F5588DF001D2343 /* AssemblyProperties.swift in Sources */,
+				043E5E8D1F5588DF001D2343 /* RouterViewControllerType.swift in Sources */,
+				ED9E00C71F9B969000F9335E /* PeriodAndSoundCreationCell.swift in Sources */,
+				043E5E8A1F5588DF001D2343 /* NavigatorImpl.swift in Sources */,
+				EDDB4D241F5BD97B00A31AA2 /* BeepModel.swift in Sources */,
+				EDDB4D1B1F55DF0200A31AA2 /* MainMenuViewController.swift in Sources */,
+				ED9E00C51F9B826D00F9335E /* TimePickerViewController.swift in Sources */,
+				EDDB4D1C1F55DF0200A31AA2 /* NewRuleViewController.swift in Sources */,
+				ED46FC7D1F68679F00C408D8 /* TimePickerCell.swift in Sources */,
+				043E5E891F5588DF001D2343 /* Navigator.swift in Sources */,
+				043E5E811F5588DF001D2343 /* Assembly.swift in Sources */,
+				EDDB4D221F59E60700A31AA2 /* RuleCell.swift in Sources */,
+				EDDB4D201F55F3FA00A31AA2 /* DayOfWeek.swift in Sources */,
+				043E5E8C1F5588DF001D2343 /* RouterImpl.swift in Sources */,
+				04F879431F554B1A006DFD6E /* AppDelegate.swift in Sources */,
+				ED9E00CA1F9FC3E000F9335E /* PeriodAndSoundViewController.swift in Sources */,
+				04B20F741FA730D4004F7386 /* TestViewController.swift in Sources */,
+				ED96B6DD1F65394B00850BE2 /* DaysPickerCell.swift in Sources */,
+				043E5E831F5588DF001D2343 /* AssemblyViewControllers.swift in Sources */,
+				043E5E8B1F5588DF001D2343 /* Router.swift in Sources */,
+				AC06F8B694D028A8EEE828E9 /* RuleModel.swift in Sources */,
+				EDF301911FA4C1F10080C366 /* PeriodAndSoundCell.swift in Sources */,
+				C61459DAACE8D98E0EB1A7E9 /* RuleRepository.swift in Sources */,
+				044DCA7F1FA9E3E900D27B31 /* CreateRuleCell.swift in Sources */,
+				7BA0B523C331532A600F275A /* RuleRepositoryImpl.swift in Sources */,
+				7FC50ACEC4544899B78A8D2F /* RuleService.swift in Sources */,
+				EDDB4D261F5BDD0900A31AA2 /* DayWithEventsModel.swift in Sources */,
+				6701DD317B8C0CF6D601F47A /* RuleServiceImpl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F8794F1F554B1A006DFD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04F879581F554B1A006DFD6E /* MakeABeepTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F8795A1F554B1A006DFD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04F879631F554B1A006DFD6E /* MakeABeepUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04F879551F554B1A006DFD6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04F8793E1F554B19006DFD6E /* MakeABeep */;
+			targetProxy = 04F879541F554B1A006DFD6E /* PBXContainerItemProxy */;
+		};
+		04F879601F554B1A006DFD6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04F8793E1F554B19006DFD6E /* MakeABeep */;
+			targetProxy = 04F8795F1F554B1A006DFD6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04F879461F554B1A006DFD6E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04F879471F554B1A006DFD6E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04F8794B1F554B1A006DFD6E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04F8794C1F554B1A006DFD6E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04F879651F554B1A006DFD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04F879661F554B1A006DFD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04F879681F554B1A006DFD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B1C88F40275DCE89B564468 /* Pods-MakeABeep.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 77324NTG3D;
+				INFOPLIST_FILE = MakeABeep/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Morodin.MakeABeep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		04F879691F554B1A006DFD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BD4887839B45B71CCF1438E /* Pods-MakeABeep.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 77324NTG3D;
+				INFOPLIST_FILE = MakeABeep/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Morodin.MakeABeep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		04F8796B1F554B1A006DFD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MakeABeepTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Morodin.MakeABeepTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MakeABeep.app/MakeABeep";
+			};
+			name = Debug;
+		};
+		04F8796C1F554B1A006DFD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MakeABeepTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Morodin.MakeABeepTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MakeABeep.app/MakeABeep";
+			};
+			name = Release;
+		};
+		04F8796E1F554B1A006DFD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MakeABeepUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Morodin.MakeABeepUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MakeABeep;
+			};
+			name = Debug;
+		};
+		04F8796F1F554B1A006DFD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MakeABeepUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Morodin.MakeABeepUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MakeABeep;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04F8793A1F554B19006DFD6E /* Build configuration list for PBXProject "MakeABeep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04F879651F554B1A006DFD6E /* Debug */,
+				04F879661F554B1A006DFD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04F879671F554B1A006DFD6E /* Build configuration list for PBXNativeTarget "MakeABeep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04F879681F554B1A006DFD6E /* Debug */,
+				04F879691F554B1A006DFD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04F8796A1F554B1A006DFD6E /* Build configuration list for PBXNativeTarget "MakeABeepTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04F8796B1F554B1A006DFD6E /* Debug */,
+				04F8796C1F554B1A006DFD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04F8796D1F554B1A006DFD6E /* Build configuration list for PBXNativeTarget "MakeABeepUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04F8796E1F554B1A006DFD6E /* Debug */,
+				04F8796F1F554B1A006DFD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04F879371F554B19006DFD6E /* Project object */;
+}
