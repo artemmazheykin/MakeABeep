@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.isGrantedNotificationAccess = granted
         }
         )
-
+        FirebaseApp.configure()
         navigator.appDelegate(didFinishLaunchingWithOptions: self)
         // Override point for customization after application launch.
         return true

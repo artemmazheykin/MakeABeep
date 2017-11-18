@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BD40ADEEA7C44BC4A6D5C9A059EFEC2B'
+               BlueprintIdentifier = '2C634C4DE4F2C0E33835D6229325EFD6'
                BlueprintName = 'Typhoon'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Typhoon.framework'>

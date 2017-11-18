@@ -8,5 +8,7 @@ pod 'PromiseKit'
 pod 'FCAlertView'
 pod 'AwesomeCache'
 pod 'TTGTagCollectionView'
+pod 'Firebase/Core'
+pod 'FirebaseUI'
 end
 

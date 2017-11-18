@@ -69,72 +69,72 @@ class NewRuleViewController: UIViewController, DaysPickerCellDelegate {
 //        ruleCreationTableView.addGestureRecognizer(tap)
     }
     
-    @IBAction func sendNotification(_ sender: UIButton) {
-
-        if sender.tag == 1{
-            if isGrantedNotificationAccess{
-                //add notification code here
-
-                //Set the content of the notification
-
-                localNotificationIdentifier = "\(selectedTime.timeIntervalSince1970)"
-
-                let content = UNMutableNotificationContent()
-                content.title = "Время кушать!"
-                content.subtitle = "\(babyName!)"
-                content.body = "хочет подкрепиться"
-                content.sound = UNNotificationSound(named: "tickle.mp3")
-
-
-                //let date = "20.05.2017T15:12:30"
-
-                //Set the trigger of the notification -- here a timer.
-
-                let dateComponents = selectedTime.toDateComponents()
-
-                if checkButton.isChecked{
-
-                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
-                    //Set the request for the notification from the above
-                    let request = UNNotificationRequest(
-                        identifier: localNotificationIdentifier! + "repeat\(repeatTime!)",
-                        content: content,
-                        trigger: trigger2
-                    )
-                    UNUserNotificationCenter.current().add(
-                        request, withCompletionHandler: nil)
-
-                    weightBefore = 0
-                    weightAfter = 0
-
-                    navigator.currentMealViewController(didCreateButtonTappedFrom: self)
-
-                }
-                else{
-                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-
-                    //Set the request for the notification from the above
-                    let request = UNNotificationRequest(
-                        identifier: localNotificationIdentifier!,
-                        content: content,
-                        trigger: trigger2
-                    )
-                    UNUserNotificationCenter.current().add(
-                        request, withCompletionHandler: nil)
-
-                    weightBefore = 0
-                    weightAfter = 0
-
-                    navigator.currentMealViewController(didCreateButtonTappedFrom: self)
-
-                }
-
-
-
-            }
-        }
-    }
+//    @IBAction func sendNotification(_ sender: UIButton) {
+//
+//        if sender.tag == 1{
+//            if isGrantedNotificationAccess{
+//                //add notification code here
+//
+//                //Set the content of the notification
+//
+//                localNotificationIdentifier = "\(selectedTime.timeIntervalSince1970)"
+//
+//                let content = UNMutableNotificationContent()
+//                content.title = "Время кушать!"
+//                content.subtitle = "\(babyName!)"
+//                content.body = "хочет подкрепиться"
+//                content.sound = UNNotificationSound(named: "tickle.mp3")
+//
+//
+//                //let date = "20.05.2017T15:12:30"
+//
+//                //Set the trigger of the notification -- here a timer.
+//
+//                let dateComponents = selectedTime.toDateComponents()
+//
+//                if checkButton.isChecked{
+//
+//                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+//
+//                    //Set the request for the notification from the above
+//                    let request = UNNotificationRequest(
+//                        identifier: localNotificationIdentifier! + "repeat\(repeatTime!)",
+//                        content: content,
+//                        trigger: trigger2
+//                    )
+//                    UNUserNotificationCenter.current().add(
+//                        request, withCompletionHandler: nil)
+//
+//                    weightBefore = 0
+//                    weightAfter = 0
+//
+//                    navigator.currentMealViewController(didCreateButtonTappedFrom: self)
+//
+//                }
+//                else{
+//                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+//
+//                    //Set the request for the notification from the above
+//                    let request = UNNotificationRequest(
+//                        identifier: localNotificationIdentifier!,
+//                        content: content,
+//                        trigger: trigger2
+//                    )
+//                    UNUserNotificationCenter.current().add(
+//                        request, withCompletionHandler: nil)
+//
+//                    weightBefore = 0
+//                    weightAfter = 0
+//
+//                    navigator.currentMealViewController(didCreateButtonTappedFrom: self)
+//
+//                }
+//
+//
+//
+//            }
+//        }
+//    }
     
     func insertRowsInTableView(indexPaths: [IndexPath]){
         ruleCreationTableView.insertRows(at: indexPaths, with: .automatic)
