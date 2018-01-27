@@ -17,7 +17,7 @@ import Typhoon
 
 // MARK: AppDelegate
 class Assembly: TyphoonAssembly {
-    func appDelegate() -> AnyObject {
+    @objc public dynamic func appDelegate() -> AnyObject {
         return TyphoonDefinition.withClass(AppDelegate.self) { definition in
             definition!.injectProperty(#selector(getter: AppDelegate.navigator), with: self.navigator)
             } as AnyObject

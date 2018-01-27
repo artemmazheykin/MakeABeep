@@ -11,7 +11,7 @@ import UIKit
 
 class RouterImpl: NSObject, Router {
     
-    var storyboard: UIStoryboard!
+    @objc var storyboard: UIStoryboard!
     
     fileprivate var currentViewController: UIViewController? {
         return UIApplication.topViewController

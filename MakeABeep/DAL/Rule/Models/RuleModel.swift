@@ -164,11 +164,3 @@ class RuleModel: NSObject {
 
 
 
-
-
-
-
-
-
-
-

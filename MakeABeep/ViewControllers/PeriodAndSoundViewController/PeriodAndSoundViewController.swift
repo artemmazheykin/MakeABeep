@@ -21,7 +21,7 @@ class PeriodAndSoundViewController: UIViewController {
     var selectedMusic: String?
     var selectedPeriod: String!
     var beep: BeepModel?
-    var navigator: Navigator!
+    @objc var navigator: Navigator!
     var selectedBeep: BeepModel?
     var selectedHour: String!
 
@@ -111,6 +111,12 @@ class PeriodAndSoundViewController: UIViewController {
         print("sender.date.toString(format: HH): \(sender.date.toString(format: "HH")!)")
         print("selectedHour: \(selectedHour)")
 
+        if sender.date.toString(format: "HH") == "00"{
+            timer.date = "\(sender.date.toString(format: "HH")!):01".toDate(format: "HH:mm")!
+            selectedHour = timer.date.toString(format: "HH")
+            return
+        }
+
         if sender.date.toString(format: "HH") != selectedHour{
             timer.date = "\(sender.date.toString(format: "HH")!):00".toDate(format: "HH:mm")!
         }
@@ -136,6 +142,6 @@ extension PeriodAndSoundViewController: TTGTextTagCollectionViewDelegate{
         else{
             selectedMusic = nil
         }
-        print ("selectedMusic = \(selectedMusic)")
+        print ("selectedMusic = \(String(describing: selectedMusic))")
     }
 }

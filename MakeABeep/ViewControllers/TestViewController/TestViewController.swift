@@ -13,6 +13,14 @@ import TTGTagCollectionView
 
 class TestViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
+    @IBOutlet weak var hourPicker: UIPickerView!
+    @IBOutlet weak var minutesPicker: UIPickerView!
+    
+    
+    
+    
+    
+    
     @IBOutlet var recordingTimeLabel: UILabel!
     @IBOutlet var record_btn_ref: UIButton!
     @IBOutlet var play_btn_ref: UIButton!
@@ -31,7 +39,10 @@ class TestViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         super.viewDidLoad()
         check_record_permission()
         tagView.delegate = self
-
+        hourPicker.delegate = self
+        hourPicker.dataSource = self
+        minutesPicker.delegate = self
+        minutesPicker.dataSource = self
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
@@ -68,8 +79,6 @@ class TestViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
                     }
                 }
             }
-            break
-        default:
             break
         }
     }
@@ -151,7 +160,7 @@ class TestViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     
     func display_alert(msg_title : String , msg_desc : String ,action_title : String, action_title2 : String)
     {
-        let ac2 = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
+//        let ac2 = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
         let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: action_title, style: .default)
         {
@@ -199,7 +208,7 @@ class TestViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         }
     }
     
-    func updateAudioMeter(timer: Timer)
+    @objc func updateAudioMeter(timer: Timer)
     {
         if audioRecorder.isRecording
         {
@@ -310,4 +319,40 @@ extension TestViewController: TTGTextTagCollectionViewDelegate{
         deselectAllOtherTags(tagText: tagText)
         play_recording(soundNamme: tagText, selected: selected)
     }
+}
+
+extension TestViewController: UIPickerViewDelegate{
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView.tag{
+        case 0:
+            return String(row)
+        case 1:
+            return String((row+1)*30)
+        default:
+            return ""
+        }
+    }
+    
+}
+
+extension TestViewController: UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView.tag{
+        case 0:
+            return 24
+        case 1:
+            return 2
+        default:
+            return 0
+        }
+    }
+    
+    
+    
+    
 }

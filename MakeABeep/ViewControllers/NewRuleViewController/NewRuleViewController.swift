@@ -11,14 +11,13 @@ import TTGTagCollectionView
 import UserNotifications
 
 
-
 class NewRuleViewController: UIViewController, DaysPickerCellDelegate {
     
     @IBOutlet weak var ruleCreationTableView: UITableView!
     @IBOutlet weak var nameOfTheRuleTextField: UITextField!
     
-    var navigator: Navigator!
-    var ruleService: RuleService!
+    @objc var navigator: Navigator!
+    @objc var ruleService: RuleService!
     var lastTappedTimeButton: UIButton!
     var selectedTime: String!
     var isItNewRule: Bool!
@@ -67,6 +66,14 @@ class NewRuleViewController: UIViewController, DaysPickerCellDelegate {
         }
 //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: nameOfTheRuleTextField, action: #selector(resignFirstResponder))
 //        ruleCreationTableView.addGestureRecognizer(tap)
+        
+//        DispatchQueue.global(qos: .background).async {
+//            sleep(2)
+//            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+//                print("settings.authorizationStatus = \(settings.authorizationStatus)")
+//            })
+//        }
+        
     }
     
 //    @IBAction func sendNotification(_ sender: UIButton) {
@@ -202,10 +209,40 @@ class NewRuleViewController: UIViewController, DaysPickerCellDelegate {
     @IBAction func didTappedCreateRuleButton(_ sender: UIButton) {
         
         ruleModel = createRule()
-        
-        ruleService.setRuleToUserDefaults(rule: ruleModel!)
-        navigator.newRuleViewController(didCreateRuleButtonTappedFrom: self)
-        
+        if let rule = ruleModel{
+            
+            
+            if isGrantedNotificationAccess{
+                //add notification code here
+
+                //Set the content of the notification
+                for (numberOfBeep,beep) in rule.beeps.enumerated(){
+
+                    let content = UNMutableNotificationContent()
+                    content.title = "MakeABeep!"
+                    content.subtitle = "\(rule.customName == nil ? rule.defaultName! : rule.customName!)"
+                    content.body = "каждые \(beep.period)"
+                    content.sound = UNNotificationSound(named: "\(beep.nameOfTheSound).mp3")
+
+                    let datePeriod = beep.period.toDate(format: "HH:mm")!
+
+                    let dateInterval = DateInterval(start: "00:00".toDate(format: "HH:mm")!, end: datePeriod)
+                    let duration = dateInterval.duration
+                    let di = duration + duration
+
+
+//                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: <#T##DateComponents#>, repeats: false)
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: duration, repeats: true)
+                    let request = UNNotificationRequest(identifier: "\(content.subtitle) beep: \(numberOfBeep)", content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(
+                        request, withCompletionHandler: nil)
+
+                }
+            }
+            
+            ruleService.setRuleToUserDefaults(rule: ruleModel!)
+            navigator.newRuleViewController(didCreateRuleButtonTappedFrom: self)
+        }
     }
     
     
@@ -304,7 +341,7 @@ extension NewRuleViewController: UITableViewDataSource{
         return 3 + createdBeeps.count
     }
     
-    func timeButtonDidTapped(sender: UIButton){
+    @objc func timeButtonDidTapped(sender: UIButton){
         lastTappedTimeButton = sender
         navigator.newRuleViewController(didTimeButtonTappedFrom: self)
     }

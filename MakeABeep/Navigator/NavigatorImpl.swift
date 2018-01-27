@@ -10,7 +10,7 @@ import Foundation
 
 class NavigatorImpl: NSObject, Navigator {
     
-    var router: Router!
+    @objc var router: Router!
     
     func appDelegate(didFinishLaunchingWithOptions delegate: AppDelegate) {
         _ = router.presentViewController(type: .navigationController)
@@ -32,23 +32,26 @@ class NavigatorImpl: NSObject, Navigator {
     }
 
     func newRuleViewController(didTimeButtonTappedFrom viewcontroller: NewRuleViewController){
-        if let tag = viewcontroller.getTag{
-            switch tag{
-            case 1: let newViewcontroller = router.pushViewController(type: .timePickerViewController) as! TimePickerViewController
-            if viewcontroller.lastTappedTimeButton.title(for: .normal) == "⏰"{
-                newViewcontroller.initialTime = "08:00"}
-            else{
-                newViewcontroller.initialTime = viewcontroller.lastTappedTimeButton.title(for: .normal)
-                }
-            case 2: let newViewcontroller = router.pushViewController(type: .timePickerViewController) as! TimePickerViewController
-            if viewcontroller.lastTappedTimeButton.title(for: .normal) == "⏰"{
-                newViewcontroller.initialTime = "18:00"}
-            else{
-                newViewcontroller.initialTime = viewcontroller.lastTappedTimeButton.title(for: .normal)
-                }
-            default: _ = router.pushViewController(type: .timePickerViewController)
-            }
-        }
+        
+        _ = router.pushViewController(type: .testViewController)
+        
+//        if let tag = viewcontroller.getTag{
+//            switch tag{
+//            case 1: let newViewcontroller = router.pushViewController(type: .timePickerViewController) as! TimePickerViewController
+//            if viewcontroller.lastTappedTimeButton.title(for: .normal) == "⏰"{
+//                newViewcontroller.initialTime = "08:00"}
+//            else{
+//                newViewcontroller.initialTime = viewcontroller.lastTappedTimeButton.title(for: .normal)
+//                }
+//            case 2: let newViewcontroller = router.pushViewController(type: .timePickerViewController) as! TimePickerViewController
+//            if viewcontroller.lastTappedTimeButton.title(for: .normal) == "⏰"{
+//                newViewcontroller.initialTime = "18:00"}
+//            else{
+//                newViewcontroller.initialTime = viewcontroller.lastTappedTimeButton.title(for: .normal)
+//                }
+//            default: _ = router.pushViewController(type: .timePickerViewController)
+//            }
+//        }
         
     }
     

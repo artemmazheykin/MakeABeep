@@ -38,6 +38,8 @@
 
 // Tag extra space in width and height, will expand each tag's size
 @property (assign, nonatomic) CGSize tagExtraSpace;
+// Tag max width for a text tag. 0 and below means no max width.
+@property (assign, nonatomic) CGFloat tagMaxWidth;
 @end
 
 /// TTGTextTagCollectionView
@@ -152,5 +154,11 @@
 - (NSArray <NSString *> *)allSelectedTags;
 
 - (NSArray <NSString *> *)allNotSelectedTags;
+
+/**
+ * Returns the index of the tag located at the specified point.
+ * If item at point is not found, returns NSNotFound.
+ */
+- (NSInteger)indexOfTagAt:(CGPoint)point;
 
 @end

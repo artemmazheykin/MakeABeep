@@ -72,16 +72,27 @@
     // Remove all tag views
     [_containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    // Update tag view frame
-    [self setNeedsLayoutTagViews];
-    [self layoutTagViews];
-    
     // Add tag view
     for (NSUInteger i = 0; i < [_dataSource numberOfTagsInTagCollectionView:self]; i++) {
         [_containerView addSubview:[_dataSource tagCollectionView:self tagViewForIndex:i]];
     }
     
-    [self invalidateIntrinsicContentSize];
+    // Update tag view frame
+    [self setNeedsLayoutTagViews];
+    [self layoutTagViews];
+}
+
+- (NSInteger)indexOfTagAt:(CGPoint)point {
+    // We expect the point to be a point wrt to the TTGTagCollectionView.
+    // so convert this point first to a point wrt to the container view.
+    CGPoint convertedPoint = [self convertPoint:point toView:_containerView];
+    for (NSUInteger i = 0; i < [self.dataSource numberOfTagsInTagCollectionView:self]; i++) {
+        UIView *tagView = [self.dataSource tagCollectionView:self tagViewForIndex:i];
+        if (CGRectContainsPoint(tagView.frame, convertedPoint) && !tagView.isHidden) {
+            return i;
+        }
+    }
+    return NSNotFound;
 }
 
 #pragma mark - Gesture
@@ -119,7 +130,6 @@
         [self setNeedsLayoutTagViews];
         [self layoutTagViews];
         _containerView.frame = (CGRect){CGPointZero, _scrollView.contentSize};
-        [self invalidateIntrinsicContentSize];
     }
     [self layoutTagViews];
 }
@@ -157,6 +167,9 @@
     NSMutableArray <NSNumber *> *eachLineWidthNumbers = [NSMutableArray new];
     NSMutableArray <NSNumber *> *eachLineTagCountNumbers = [NSMutableArray new];
     
+    NSMutableArray <NSArray <NSNumber *> *> *eachLineTagIndexs = [NSMutableArray new];
+    NSMutableArray <NSNumber *> *tmpTagIndexNumbers = [NSMutableArray new];
+    
     // Get each line max height ,width and tag count
     for (NSUInteger i = 0; i < count; i++) {
         CGSize tagSize = [_delegate tagCollectionView:self sizeForTagAtIndex:i];
@@ -166,11 +179,12 @@
             [eachLineMaxHeightNumbers addObject:@(currentLineMaxHeight)];
             [eachLineWidthNumbers addObject:@(currentLineX - _horizontalSpacing)];
             [eachLineTagCountNumbers addObject:@(currentLineTagsCount)];
+            [eachLineTagIndexs addObject:tmpTagIndexNumbers];
+            tmpTagIndexNumbers = [NSMutableArray new];
             currentLineTagsCount = 0;
             currentLineMaxHeight = 0;
             currentLineX = 0;
         }
-        
         
         // Line number limit
         if (_numberOfLines != 0) {
@@ -181,12 +195,14 @@
         currentLineX += tagSize.width + _horizontalSpacing;
         currentLineTagsCount += 1;
         currentLineMaxHeight = MAX(tagSize.height, currentLineMaxHeight);
+        [tmpTagIndexNumbers addObject:@(i)];
     }
     
     // Add last
     [eachLineMaxHeightNumbers addObject:@(currentLineMaxHeight)];
     [eachLineWidthNumbers addObject:@(currentLineX - _horizontalSpacing)];
     [eachLineTagCountNumbers addObject:@(currentLineTagsCount)];
+    [eachLineTagIndexs addObject:tmpTagIndexNumbers];
     
     // Line limit
     if (_numberOfLines != 0) {
@@ -198,60 +214,67 @@
     // Prepare
     [self layoutEachLineTagsWithMaxLineWidth:maxLineWidth
                                numberOfLines:eachLineTagCountNumbers.count
+                           eachLineTagIndexs:eachLineTagIndexs
                             eachLineTagCount:eachLineTagCountNumbers
                                eachLineWidth:eachLineWidthNumbers
                            eachLineMaxHeight:eachLineMaxHeightNumbers];
 }
 
 - (void)layoutTagViewsForHorizontalDirection {
-    CGFloat totalWidthInOneLine = 0;
     NSInteger count = [_dataSource numberOfTagsInTagCollectionView:self];
     _numberOfLines = _numberOfLines == 0 ? 1 : _numberOfLines;
     _numberOfLines = MIN(count, _numberOfLines);
     
-    // Set frame size and get totalWidthInOneLine
-    for (NSInteger i = 0; i < count; i++) {
-        CGSize tagSize = [_delegate tagCollectionView:self sizeForTagAtIndex:i];
-        totalWidthInOneLine += tagSize.width + _horizontalSpacing;
-    }
-    
-    // Calculate estimate each line width
-    CGFloat averageWidthEachLine = totalWidthInOneLine / (CGFloat)_numberOfLines + 1;
+    CGFloat maxLineWidth = 0;
     
     NSMutableArray <NSNumber *> *eachLineMaxHeightNumbers = [NSMutableArray new];
     NSMutableArray <NSNumber *> *eachLineWidthNumbers = [NSMutableArray new];
     NSMutableArray <NSNumber *> *eachLineTagCountNumbers = [NSMutableArray new];
-    CGFloat currentLineMaxHeight = 0;
-    CGFloat maxLineWidth = 0;
-    CGFloat currentLineX = 0;
-    NSUInteger currentLineTagsCount = 0;
-    NSUInteger tagIndex = 0;
     
-    // Get each line max height, tags count and true width
-    for (NSUInteger currentLine = 0; currentLine < _numberOfLines; currentLine++) {
-        while ((currentLineX < averageWidthEachLine || currentLine == _numberOfLines - 1) && tagIndex < count) {
-            CGSize tagSize = [_delegate tagCollectionView:self sizeForTagAtIndex:tagIndex];
-            currentLineX += tagSize.width + _horizontalSpacing;
-            currentLineMaxHeight = MAX(tagSize.height, currentLineMaxHeight);
-            currentLineTagsCount += 1;
-            tagIndex += 1;
-        }
-        
-        maxLineWidth = MAX(currentLineX - _horizontalSpacing, maxLineWidth);
-        [eachLineTagCountNumbers addObject:@(currentLineTagsCount)];
-        [eachLineMaxHeightNumbers addObject:@(currentLineMaxHeight)];
-        [eachLineWidthNumbers addObject:@(currentLineX - _horizontalSpacing)];
-        currentLineX = 0;
-        currentLineMaxHeight = 0;
-        currentLineTagsCount = 0;
+    NSMutableArray <NSMutableArray <NSNumber *> *> *eachLineTagIndexs = [NSMutableArray new];
+    
+    // Init each line
+    for (NSInteger currentLine = 0; currentLine < _numberOfLines; currentLine++) {
+        [eachLineMaxHeightNumbers addObject:@0];
+        [eachLineWidthNumbers addObject:@0];
+        [eachLineTagCountNumbers addObject:@0];
+        [eachLineTagIndexs addObject:[NSMutableArray new]];
     }
     
-    // Update max width
-    maxLineWidth = MAX(CGRectGetWidth(self.frame), maxLineWidth);
+    // Add tags
+    for (NSUInteger tagIndex = 0; tagIndex < count; tagIndex++) {
+        NSUInteger currentLine = tagIndex % _numberOfLines;
+        
+        NSUInteger currentLineTagsCount = eachLineTagCountNumbers[currentLine].unsignedIntegerValue;
+        CGFloat currentLineMaxHeight = eachLineMaxHeightNumbers[currentLine].floatValue;
+        CGFloat currentLineX = eachLineWidthNumbers[currentLine].floatValue;
+        NSMutableArray *currentLineTagIndexNumbers = eachLineTagIndexs[currentLine];
+        
+        CGSize tagSize = [_delegate tagCollectionView:self sizeForTagAtIndex:tagIndex];
+        currentLineX += tagSize.width + _horizontalSpacing;
+        currentLineMaxHeight = MAX(tagSize.height, currentLineMaxHeight);
+        currentLineTagsCount += 1;
+        [currentLineTagIndexNumbers addObject:@(tagIndex)];
+        
+        eachLineTagCountNumbers[currentLine] = @(currentLineTagsCount);
+        eachLineMaxHeightNumbers[currentLine] = @(currentLineMaxHeight);
+        eachLineWidthNumbers[currentLine] = @(currentLineX);
+        eachLineTagIndexs[currentLine] = currentLineTagIndexNumbers;
+    }
     
-    // Set each tag frame
+    // Remove extra space
+    for (NSInteger currentLine = 0; currentLine < _numberOfLines; currentLine++) {
+        CGFloat currentLineWidth = eachLineWidthNumbers[currentLine].floatValue;
+        currentLineWidth -= _horizontalSpacing;
+        eachLineWidthNumbers[currentLine] = @(currentLineWidth);
+        
+        maxLineWidth = MAX(currentLineWidth, maxLineWidth);
+    }
+    
+    // Prepare
     [self layoutEachLineTagsWithMaxLineWidth:maxLineWidth
-                               numberOfLines:_numberOfLines
+                               numberOfLines:eachLineTagCountNumbers.count
+                           eachLineTagIndexs:eachLineTagIndexs
                             eachLineTagCount:eachLineTagCountNumbers
                                eachLineWidth:eachLineWidthNumbers
                            eachLineMaxHeight:eachLineMaxHeightNumbers];
@@ -259,13 +282,12 @@
 
 - (void)layoutEachLineTagsWithMaxLineWidth:(CGFloat)maxLineWidth
                              numberOfLines:(NSUInteger)numberOfLines
+                         eachLineTagIndexs:(NSArray <NSArray <NSNumber *> *> *)eachLineTagIndexs
                           eachLineTagCount:(NSArray <NSNumber *> *)eachLineTagCount
                              eachLineWidth:(NSArray <NSNumber *> *)eachLineWidth
                          eachLineMaxHeight:(NSArray <NSNumber *> *)eachLineMaxHeight {
  
     CGFloat currentYBase = _contentInset.top;
-    NSUInteger currentTagIndexBase = 0;
-    NSUInteger tagIndex = 0;
     
     for (NSUInteger currentLine = 0; currentLine < numberOfLines; currentLine++) {
         CGFloat currentLineMaxHeight = eachLineMaxHeight[currentLine].floatValue;
@@ -275,8 +297,8 @@
         // Alignment x offset
         CGFloat currentLineXOffset = 0;
         CGFloat currentLineAdditionWidth = 0;
-        CGFloat currentLineX = 0;
         CGFloat acturalHorizontalSpacing = _horizontalSpacing;
+        __block CGFloat currentLineX = 0;
         
         switch (_alignment) {
             case TTGTagCollectionAlignmentLeft:
@@ -302,7 +324,9 @@
         }
         
         // Current line
-        for (tagIndex = currentTagIndexBase; tagIndex < currentTagIndexBase + currentLineTagsCount; tagIndex++) {
+        [eachLineTagIndexs[currentLine] enumerateObjectsUsingBlock:^(NSNumber * _Nonnull tagIndexNumber, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSUInteger tagIndex = tagIndexNumber.unsignedIntegerValue;
+            
             UIView *tagView = [_dataSource tagCollectionView:self tagViewForIndex:tagIndex];
             CGSize tagSize = [_delegate tagCollectionView:self sizeForTagAtIndex:tagIndex];
             
@@ -319,11 +343,10 @@
             tagView.frame = (CGRect){origin, tagSize};
             
             currentLineX += tagSize.width + acturalHorizontalSpacing;
-        }
+        }];
         
         // Next line
         currentYBase += currentLineMaxHeight + _verticalSpacing;
-        currentTagIndexBase += currentLineTagsCount;
     }
     
     // Content size

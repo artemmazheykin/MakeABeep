@@ -32,7 +32,7 @@ class TimePickerViewController: UIViewController {
     @IBOutlet weak var blinkingColon: UILabel!
     var selectedTime: String!
     var initialTime: String!
-    var navigator: Navigator!
+    @objc var navigator: Navigator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,5 +107,13 @@ extension Date {
         
         return nil
     }
+    
+    func toDateComponents() -> DateComponents{
+        
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.day,.month,.year,.hour,.minute,.second], from: self)
+        return dateComponents
+    }
+
 }
 

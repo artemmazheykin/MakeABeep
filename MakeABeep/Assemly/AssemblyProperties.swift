@@ -23,7 +23,7 @@ extension Assembly {
             } as AnyObject
     }
     
-    var mainStoryBoard: AnyObject {
+    @objc public dynamic var mainStoryBoard: AnyObject {
         return _mainStoryBoard()
     }
 }
@@ -41,7 +41,7 @@ extension Assembly {
             } as AnyObject
     }
     
-    var navigator: AnyObject {
+    @objc public dynamic var navigator: AnyObject {
         return _navigator()
     }
 }
@@ -59,7 +59,7 @@ extension Assembly {
             } as AnyObject
     }
     
-    var router: AnyObject {
+    @objc public dynamic var router: AnyObject {
         return _router()
     }
 }
@@ -74,7 +74,7 @@ extension Assembly {
             } as AnyObject
     }
     
-    var ruleRepository: AnyObject {
+    @objc public dynamic var ruleRepository: AnyObject {
         return _ruleRepository()
     }
     
@@ -86,7 +86,7 @@ extension Assembly {
             } as AnyObject
     }
     
-    var ruleService: AnyObject {
+    @objc public dynamic var ruleService: AnyObject {
         return _ruleService()
     }
 }

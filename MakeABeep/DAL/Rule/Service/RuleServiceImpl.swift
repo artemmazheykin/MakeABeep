@@ -11,7 +11,7 @@ import PromiseKit
 
 class RuleServiceImpl: NSObject, RuleService {
 
-    var ruleRepository: RuleRepository!
+    @objc var ruleRepository: RuleRepository!
     
     func setRulesToUserDefaults(rules: [RuleModel]){
         return ruleRepository.setRulesToUserDefaults(rules: rules)

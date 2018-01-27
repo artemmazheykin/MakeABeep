@@ -7,19 +7,46 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
+
 
 class MainMenuViewController: UIViewController {
 
-    var navigator: Navigator!
-    var ruleService: RuleService!
+    @objc var navigator: Navigator!
+    @objc var ruleService: RuleService!
     @IBOutlet weak var rulesTableView: UITableView!
     var rules: [RuleModel] = []
     var selectedRule: RuleModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rules = ruleService.getRulesFromUserDefaults()
         
+//        do{
+//        try Auth.auth().signOut()
+//        }
+//        catch{
+//            print("!!!!!!!error")
+//        }
+        
+        if Auth.auth().currentUser == nil {
+            let authViewController = FUIAuth.defaultAuthUI()!.authViewController()
+            self.present(authViewController, animated: true)
+        }
+        else{
+            print("!!!!!!!Auth.auth().app?.name = \(Auth.auth().app?.name)")
+            print("!!!!Auth.auth().currentUser?.displayName = \(Auth.auth().currentUser?.displayName)")
+        }
+        
+//        Auth.auth().addStateDidChangeListener() { auth, user in
+//            // 2
+//            if user == nil {
+//                // 3
+//                let authViewController = FUIAuth.defaultAuthUI()!.authViewController()
+//                self.present(authViewController, animated: true)
+//            }
+//        }
+        rules = ruleService.getRulesFromUserDefaults()
         rulesTableView.delegate = self
         rulesTableView.dataSource = self
         rulesTableView.tableFooterView = UIView()
