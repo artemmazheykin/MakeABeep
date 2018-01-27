@@ -16,7 +16,7 @@ class TestViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBOutlet weak var hourPicker: UIPickerView!
     @IBOutlet weak var minutesPicker: UIPickerView!
     
-    
+    var privet: String?
     
     
     
