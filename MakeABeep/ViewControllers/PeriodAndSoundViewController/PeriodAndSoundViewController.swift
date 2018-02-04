@@ -17,6 +17,7 @@ class PeriodAndSoundViewController: UIViewController {
     @IBOutlet weak var timer: UIDatePicker!
     
     @IBOutlet weak var musicTags: TTGTextTagCollectionView!
+    
     var tagNamesOfMusic = ["bell_ring","bird_peewee","bird_pigeon","bell_school"]
     var selectedMusic: String?
     var selectedPeriod: String!

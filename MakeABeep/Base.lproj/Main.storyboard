@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -537,45 +536,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-5v-IL0">
-                                <rect key="frame" x="0.0" y="30" width="375" height="287"/>
-                                <date key="date" timeIntervalSinceReferenceDate="530485200.351578">
-                                    <!--2017-10-23 21:00:00 +0000-->
-                                </date>
-                                <locale key="locale" localeIdentifier="ru"/>
-                                <connections>
-                                    <action selector="valueChangedDatePicker:" destination="25a-5g-Qbz" eventType="valueChanged" id="2nI-Rn-i7r"/>
-                                </connections>
-                            </datePicker>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hy3-f5-SOm" customClass="TTGTextTagCollectionView">
-                                <rect key="frame" x="10" y="325" width="356" height="281"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keb-ak-Lpm">
-                                <rect key="frame" x="9.5" y="606" width="356" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="fc2-ph-S9C"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Ok"/>
-                                <connections>
-                                    <action selector="didTappedOk:" destination="25a-5g-Qbz" eventType="touchUpInside" id="KXs-hs-jDA"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CxN-1n-Wzi">
+                                <rect key="frame" x="10" y="28" width="355" height="629"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-5v-IL0">
+                                        <rect key="frame" x="17.5" y="0.0" width="320" height="377.5"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="530485200.351578">
+                                            <!--2017-10-23 21:00:00 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="ru"/>
+                                        <connections>
+                                            <action selector="valueChangedDatePicker:" destination="25a-5g-Qbz" eventType="valueChanged" id="2nI-Rn-i7r"/>
+                                        </connections>
+                                    </datePicker>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hy3-f5-SOm" customClass="TTGTextTagCollectionView">
+                                        <rect key="frame" x="0.0" y="377.5" width="355" height="178"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="999" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keb-ak-Lpm">
+                                        <rect key="frame" x="161.5" y="555.5" width="32" height="73.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Ok"/>
+                                        <connections>
+                                            <action selector="didTappedOk:" destination="25a-5g-Qbz" eventType="touchUpInside" id="KXs-hs-jDA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="keb-ak-Lpm" secondAttribute="bottom" constant="20" id="8jU-jn-cBw"/>
-                            <constraint firstItem="keb-ak-Lpm" firstAttribute="width" secondItem="Hy3-f5-SOm" secondAttribute="width" id="BNT-P7-8lh"/>
-                            <constraint firstItem="keb-ak-Lpm" firstAttribute="top" secondItem="Hy3-f5-SOm" secondAttribute="bottom" id="C5b-1H-Ysx"/>
-                            <constraint firstItem="Hy3-f5-SOm" firstAttribute="centerX" secondItem="GjU-5v-IL0" secondAttribute="centerX" id="EZE-ti-rPq"/>
-                            <constraint firstItem="keb-ak-Lpm" firstAttribute="centerX" secondItem="Hy3-f5-SOm" secondAttribute="centerX" id="Gfs-RT-vvz"/>
-                            <constraint firstItem="Hy3-f5-SOm" firstAttribute="top" secondItem="GjU-5v-IL0" secondAttribute="bottom" constant="8" symbolic="YES" id="TeW-L0-1C2"/>
-                            <constraint firstItem="GjU-5v-IL0" firstAttribute="top" secondItem="zl1-Bb-KNd" secondAttribute="bottom" constant="10" id="U6q-rL-ylI"/>
-                            <constraint firstItem="VSt-N5-NFA" firstAttribute="top" secondItem="GjU-5v-IL0" secondAttribute="bottom" constant="350" id="cA9-0H-txu"/>
-                            <constraint firstItem="Hy3-f5-SOm" firstAttribute="width" secondItem="GjU-5v-IL0" secondAttribute="width" multiplier="0.95" id="fz9-MD-ttH"/>
-                            <constraint firstAttribute="trailing" secondItem="GjU-5v-IL0" secondAttribute="trailing" id="id9-Jo-Niy"/>
-                            <constraint firstItem="GjU-5v-IL0" firstAttribute="leading" secondItem="Q4X-9n-PS3" secondAttribute="leading" id="kgb-kA-L4l"/>
+                            <constraint firstItem="VSt-N5-NFA" firstAttribute="top" secondItem="CxN-1n-Wzi" secondAttribute="bottom" constant="10" id="B4S-DJ-GO4"/>
+                            <constraint firstAttribute="trailing" secondItem="CxN-1n-Wzi" secondAttribute="trailing" constant="10" id="IvN-r2-s2i"/>
+                            <constraint firstItem="CxN-1n-Wzi" firstAttribute="top" secondItem="zl1-Bb-KNd" secondAttribute="bottom" constant="8" id="Rw5-rG-El5"/>
+                            <constraint firstItem="CxN-1n-Wzi" firstAttribute="leading" secondItem="Q4X-9n-PS3" secondAttribute="leading" constant="10" id="hox-5t-iUH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -585,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZi-fA-UT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589.5999999999999" y="713.79310344827593"/>
+            <point key="canvasLocation" x="2589.5999999999999" y="781.25937031484261"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xh6-bY-FiO">
