@@ -4,8 +4,8 @@
 [![Version](https://img.shields.io/cocoapods/v/TTGTagCollectionView.svg?style=flat)](http://cocoapods.org/pods/TTGTagCollectionView)
 [![License](https://img.shields.io/cocoapods/l/TTGTagCollectionView.svg?style=flat)](http://cocoapods.org/pods/TTGTagCollectionView)
 [![Platform](https://img.shields.io/cocoapods/p/TTGTagCollectionView.svg?style=flat)](http://cocoapods.org/pods/TTGTagCollectionView)
-[![Apps Using](https://img.shields.io/badge/Apps%20Using-%3E%20255-blue.svg)](https://github.com/zekunyan/TTGTagCollectionView)
-[![Total Download](https://img.shields.io/badge/Total%20Download-%3E%2014,454-blue.svg)](https://github.com/zekunyan/TTGTagCollectionView)
+[![Apps Using](https://img.shields.io/badge/Apps%20Using-%3E%201,096-blue.svg)](https://github.com/zekunyan/TTGTagCollectionView)
+[![Total Download](https://img.shields.io/badge/Total%20Download-%3E%2068,461-blue.svg)](https://github.com/zekunyan/TTGTagCollectionView)
 
 ![Screenshot](https://github.com/zekunyan/TTGTagCollectionView/raw/master/Resources/screen_shot.png)
 
@@ -91,6 +91,15 @@ Each tag can be configured.
 @property (strong, nonatomic) UIColor *tagBackgroundColor;
 @property (strong, nonatomic) UIColor *tagSelectedBackgroundColor;
 
+// Gradient background color
+@property (assign, nonatomic) BOOL tagShouldUseGradientBackgrounds; // Default is `NO`. If set, solid background colors are ignored.
+@property (strong, nonatomic) UIColor *tagGradientBackgroundStartColor;
+@property (strong, nonatomic) UIColor *tagGradientBackgroundEndColor;
+@property (strong, nonatomic) UIColor *tagSelectedGradientBackgroundStartColor;
+@property (strong, nonatomic) UIColor *tagSelectedGradientBackgroundEndColor;
+@property (assign, nonatomic) CGPoint tagGradientStartPoint; // Default is `(0.5, 0)`.
+@property (assign, nonatomic) CGPoint tagGradientEndPoint; // Default is `(0.5, 1)`.
+
 // Corner radius
 @property (assign, nonatomic) CGFloat tagCornerRadius;
 @property (assign, nonatomic) CGFloat tagSelectedCornerRadius;
@@ -157,11 +166,12 @@ Alignment types:
 
 ```
 typedef NS_ENUM(NSInteger, TTGTagCollectionAlignment) {
-    TTGTagCollectionAlignmentLeft = 0,             // Default
-    TTGTagCollectionAlignmentCenter,               // Center
-    TTGTagCollectionAlignmentRight,                // Right
-    TTGTagCollectionAlignmentFillByExpandingSpace, // Expand horizontal spacing and fill
-    TTGTagCollectionAlignmentFillByExpandingWidth  // Expand width and fill
+    TTGTagCollectionAlignmentLeft = 0,                           // Default
+    TTGTagCollectionAlignmentCenter,                             // Center
+    TTGTagCollectionAlignmentRight,                              // Right
+    TTGTagCollectionAlignmentFillByExpandingSpace,               // Expand horizontal spacing and fill
+    TTGTagCollectionAlignmentFillByExpandingWidth,               // Expand width and fill
+    TTGTagCollectionAlignmentFillByExpandingWidthExceptLastLine, // Expand width and fill, except last line
 };
 ```
 

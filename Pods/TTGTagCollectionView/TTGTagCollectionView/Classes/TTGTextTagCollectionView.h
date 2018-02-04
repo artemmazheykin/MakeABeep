@@ -20,6 +20,15 @@
 @property (strong, nonatomic) UIColor *tagBackgroundColor;
 @property (strong, nonatomic) UIColor *tagSelectedBackgroundColor;
 
+// Gradient background color
+@property (assign, nonatomic) BOOL tagShouldUseGradientBackgrounds;
+@property (strong, nonatomic) UIColor *tagGradientBackgroundStartColor;
+@property (strong, nonatomic) UIColor *tagGradientBackgroundEndColor;
+@property (strong, nonatomic) UIColor *tagSelectedGradientBackgroundStartColor;
+@property (strong, nonatomic) UIColor *tagSelectedGradientBackgroundEndColor;
+@property (assign, nonatomic) CGPoint tagGradientStartPoint;
+@property (assign, nonatomic) CGPoint tagGradientEndPoint;
+
 // Corner radius
 @property (assign, nonatomic) CGFloat tagCornerRadius;
 @property (assign, nonatomic) CGFloat tagSelectedCornerRadius;
@@ -76,6 +85,8 @@
 
 // Number of lines. 0 means no limit, default is 0 for vertical and 1 for horizontal.
 @property (nonatomic, assign) NSUInteger numberOfLines;
+// The real number of lines ignoring the numberOfLines value
+@property (nonatomic, assign, readonly) NSUInteger actualNumberOfLines;
 
 // Tag selection limit, default is 0, means no limit
 @property (nonatomic, assign) NSUInteger selectionLimit;

@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, assign) BOOL needsLayoutTagViews;
+@property (nonatomic, assign) NSUInteger actualNumberOfLines;
 @end
 
 @implementation TTGTagCollectionView
@@ -174,7 +175,7 @@
     for (NSUInteger i = 0; i < count; i++) {
         CGSize tagSize = [_delegate tagCollectionView:self sizeForTagAtIndex:i];
 
-        if (currentLineX + tagSize.width > maxLineWidth) {
+        if (currentLineX + tagSize.width > maxLineWidth && tmpTagIndexNumbers.count > 0) {
             // New Line
             [eachLineMaxHeightNumbers addObject:@(currentLineMaxHeight)];
             [eachLineWidthNumbers addObject:@(currentLineX - _horizontalSpacing)];
@@ -186,7 +187,7 @@
             currentLineX = 0;
         }
         
-        // Line number limit
+        // Line limit
         if (_numberOfLines != 0) {
             UIView *tagView = [_dataSource tagCollectionView:self tagViewForIndex:i];
             tagView.hidden = eachLineWidthNumbers.count >= _numberOfLines;
@@ -204,11 +205,15 @@
     [eachLineTagCountNumbers addObject:@(currentLineTagsCount)];
     [eachLineTagIndexs addObject:tmpTagIndexNumbers];
     
+    // Actual number of lines
+    _actualNumberOfLines = eachLineTagCountNumbers.count;
+    
     // Line limit
     if (_numberOfLines != 0) {
-        eachLineWidthNumbers = [[eachLineWidthNumbers subarrayWithRange:NSMakeRange(0, MIN(eachLineWidthNumbers.count, _numberOfLines))] mutableCopy];
         eachLineMaxHeightNumbers = [[eachLineMaxHeightNumbers subarrayWithRange:NSMakeRange(0, MIN(eachLineMaxHeightNumbers.count, _numberOfLines))] mutableCopy];
+        eachLineWidthNumbers = [[eachLineWidthNumbers subarrayWithRange:NSMakeRange(0, MIN(eachLineWidthNumbers.count, _numberOfLines))] mutableCopy];
         eachLineTagCountNumbers = [[eachLineTagCountNumbers subarrayWithRange:NSMakeRange(0, MIN(eachLineTagCountNumbers.count, _numberOfLines))] mutableCopy];
+        eachLineTagIndexs = [[eachLineTagIndexs subarrayWithRange:NSMakeRange(0, MIN(eachLineTagIndexs.count, _numberOfLines))] mutableCopy];
     }
     
     // Prepare
@@ -317,9 +322,18 @@
                 currentLineWidth = maxLineWidth;
                 break;
             case TTGTagCollectionAlignmentFillByExpandingWidth:
+            case TTGTagCollectionAlignmentFillByExpandingWidthExceptLastLine:
                 currentLineXOffset = _contentInset.left;
                 currentLineAdditionWidth = (maxLineWidth - currentLineWidth) / (CGFloat)currentLineTagsCount;
                 currentLineWidth = maxLineWidth;
+                
+                if (_alignment == TTGTagCollectionAlignmentFillByExpandingWidthExceptLastLine &&
+                    currentLine == numberOfLines - 1 &&
+                    numberOfLines != 1) {
+                    // Reset last line width for TTGTagCollectionAlignmentFillByExpandingWidthExceptLastLine
+                    currentLineAdditionWidth = 0;
+                }
+                
                 break;
         }
         
@@ -395,6 +409,14 @@
 - (void)setNumberOfLines:(NSUInteger)numberOfLines {
     _numberOfLines = numberOfLines;
     [self setNeedsLayoutTagViews];
+}
+
+- (NSUInteger)actualNumberOfLines {
+    if (_scrollDirection == TTGTagCollectionScrollDirectionHorizontal) {
+        return _numberOfLines;
+    } else {
+        return _actualNumberOfLines;
+    }
 }
 
 - (void)setHorizontalSpacing:(CGFloat)horizontalSpacing {

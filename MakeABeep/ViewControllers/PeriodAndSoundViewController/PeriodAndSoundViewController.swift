@@ -15,9 +15,10 @@ class PeriodAndSoundViewController: UIViewController {
     
     var player : AVAudioPlayer?
     @IBOutlet weak var timer: UIDatePicker!
-    
     @IBOutlet weak var musicTags: TTGTextTagCollectionView!
     
+    var musicTagsConstraints: [NSLayoutConstraint] = []
+
     var tagNamesOfMusic = ["bell_ring","bird_peewee","bird_pigeon","bell_school"]
     var selectedMusic: String?
     var selectedPeriod: String!
@@ -48,6 +49,17 @@ class PeriodAndSoundViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        musicTags.translatesAutoresizingMaskIntoConstraints = false
+
+        musicTagsConstraints.append(musicTags.heightAnchor.constraint(greaterThanOrEqualToConstant: 450))
+
+        NSLayoutConstraint.activate(musicTagsConstraints)
+
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -22,11 +22,12 @@ typedef NS_ENUM(NSInteger, TTGTagCollectionScrollDirection) {
  * Tags alignment
  */
 typedef NS_ENUM(NSInteger, TTGTagCollectionAlignment) {
-    TTGTagCollectionAlignmentLeft = 0,             // Default
-    TTGTagCollectionAlignmentCenter,               // Center
-    TTGTagCollectionAlignmentRight,                // Right
-    TTGTagCollectionAlignmentFillByExpandingSpace, // Expand horizontal spacing and fill
-    TTGTagCollectionAlignmentFillByExpandingWidth  // Expand width and fill
+    TTGTagCollectionAlignmentLeft = 0,                           // Default
+    TTGTagCollectionAlignmentCenter,                             // Center
+    TTGTagCollectionAlignmentRight,                              // Right
+    TTGTagCollectionAlignmentFillByExpandingSpace,               // Expand horizontal spacing and fill
+    TTGTagCollectionAlignmentFillByExpandingWidth,               // Expand width and fill
+    TTGTagCollectionAlignmentFillByExpandingWidthExceptLastLine  // Expand width and fill, except last line
 };
 
 /**
@@ -69,6 +70,8 @@ typedef NS_ENUM(NSInteger, TTGTagCollectionAlignment) {
 
 // Number of lines. 0 means no limit, default is 0 for vertical and 1 for horizontal.
 @property (nonatomic, assign) NSUInteger numberOfLines;
+// The real number of lines ignoring the numberOfLines value
+@property (nonatomic, assign, readonly) NSUInteger actualNumberOfLines;
 
 // Horizontal and vertical space between tags, default is 4.
 @property (nonatomic, assign) CGFloat horizontalSpacing;
