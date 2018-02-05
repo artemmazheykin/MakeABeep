@@ -10,8 +10,13 @@ import UIKit
 
 class PeriodAndSoundCreationCell: UITableViewCell {
 
+    @IBOutlet weak var borderView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        borderView.layer.borderWidth = 1.2
+        borderView.layer.borderColor = UIColor.purple.cgColor
+        borderView.layer.cornerRadius = 15
         // Initialization code
     }
 

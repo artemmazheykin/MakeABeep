@@ -282,11 +282,10 @@ extension NewRuleViewController: UITableViewDelegate{
             default: break
             }
             
-            
             return height
         }
         else if indexPath.row==2{
-        return 58
+            return 58
         }
         else{
             return 40
@@ -295,9 +294,6 @@ extension NewRuleViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row{
-        case 2:
-            navigator.newRuleViewController(didPeriodAndSoundCreationCellTappedFrom: self)
-            tableView.deselectRow(at: indexPath, animated: true)
         case 3...Int.max:
             selectedBeep = createdBeeps[indexPath.row-3]
             navigator.newRuleViewController(didPeriodAndSoundCellTappedFrom: self)
@@ -329,6 +325,7 @@ extension NewRuleViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Cтереть"
     }
+    
 }
 
 extension NewRuleViewController: UITableViewDataSource{
@@ -345,8 +342,18 @@ extension NewRuleViewController: UITableViewDataSource{
         lastTappedTimeButton = sender
         navigator.newRuleViewController(didTimeButtonTappedFrom: self)
     }
-
- 
+    
+    @objc func periodAndSoundCreationButtonDidTapped(sender: UITapGestureRecognizer){
+        
+        navigator.newRuleViewController(didPeriodAndSoundCreationCellTappedFrom: self)
+        
+        let cell = self.ruleCreationTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! PeriodAndSoundCreationCell
+        cell.borderView.backgroundColor = .clear
+        
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row{
         case 0:
@@ -381,8 +388,13 @@ extension NewRuleViewController: UITableViewDataSource{
             }
             return cell
             
+            
         case 2:
             let cell = ruleCreationTableView.dequeueReusableCell(withIdentifier: "PeriodAndSoundCreationCell") as! PeriodAndSoundCreationCell
+            cell.selectionStyle = .none
+            let tap = UITapGestureRecognizer(target: self, action: #selector(periodAndSoundCreationButtonDidTapped(sender:)))
+            tap.delegate = self
+            cell.contentView.addGestureRecognizer(tap)
             return cell
             
         default:
@@ -394,4 +406,19 @@ extension NewRuleViewController: UITableViewDataSource{
     }
 }
 
+extension NewRuleViewController: UIScrollViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let cell = ruleCreationTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! PeriodAndSoundCreationCell
+        cell.borderView.backgroundColor = .clear
+    }
+}
 
+extension NewRuleViewController: UIGestureRecognizerDelegate{
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let cell = ruleCreationTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! PeriodAndSoundCreationCell
+        cell.borderView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.6)
+
+        return true
+    }
+}
